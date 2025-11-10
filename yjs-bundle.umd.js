@@ -283,7 +283,7 @@ var Y = (() => {
                 return G(H(t4, e2.length - n3), e2, n3, r2);
               }
               function T(e2, t4, n3, r2) {
-                return G(Y2(t4), e2, n3, r2);
+                return G(Y(t4), e2, n3, r2);
               }
               function v(e2, t4, n3, r2) {
                 return T(e2, t4, n3, r2);
@@ -401,7 +401,7 @@ var Y = (() => {
                 }
                 return o2;
               }
-              function Y2(e2) {
+              function Y(e2) {
                 for (var t4 = [], n3 = 0; n3 < e2.length; ++n3) t4.push(255 & e2.charCodeAt(n3));
                 return t4;
               }
@@ -1404,7 +1404,7 @@ var Y = (() => {
               }, O = e("util");
               x = O && O.debuglog ? O.debuglog("stream") : function() {
               };
-              var F, B, U, j = e("./internal/streams/buffer_list"), q = e("./internal/streams/destroy"), W = e("./internal/streams/state"), H = W.getHighWaterMark, Y2 = e("../errors").codes, V = Y2.ERR_INVALID_ARG_TYPE, z = Y2.ERR_STREAM_PUSH_AFTER_EOF, G = Y2.ERR_METHOD_NOT_IMPLEMENTED, K = Y2.ERR_STREAM_UNSHIFT_AFTER_END_EVENT;
+              var F, B, U, j = e("./internal/streams/buffer_list"), q = e("./internal/streams/destroy"), W = e("./internal/streams/state"), H = W.getHighWaterMark, Y = e("../errors").codes, V = Y.ERR_INVALID_ARG_TYPE, z = Y.ERR_STREAM_PUSH_AFTER_EOF, G = Y.ERR_METHOD_NOT_IMPLEMENTED, K = Y.ERR_STREAM_UNSHIFT_AFTER_END_EVENT;
               e("inherits")(s, I);
               var X = q.errorOrDestroy, $ = ["error", "close", "destroy", "pause", "resume"];
               Object.defineProperty(s.prototype, "destroyed", { enumerable: false, get: function() {
@@ -1626,11 +1626,11 @@ var Y = (() => {
               }
               function c(e2, t3) {
                 var r3 = new W();
-                Y2(e2, r3), n2.nextTick(t3, r3);
+                Y(e2, r3), n2.nextTick(t3, r3);
               }
               function u(e2, t3, r3, a2) {
                 var o2;
-                return null === r3 ? o2 = new q() : "string" != typeof r3 && !t3.objectMode && (o2 = new O("chunk", ["string", "Buffer"], r3)), !o2 || (Y2(e2, o2), n2.nextTick(a2, o2), false);
+                return null === r3 ? o2 = new q() : "string" != typeof r3 && !t3.objectMode && (o2 = new O("chunk", ["string", "Buffer"], r3)), !o2 || (Y(e2, o2), n2.nextTick(a2, o2), false);
               }
               function p(e2, t3, n3) {
                 return e2.objectMode || false === e2.decodeStrings || "string" != typeof t3 || (t3 = x.from(t3, n3)), t3;
@@ -1653,7 +1653,7 @@ var Y = (() => {
                 t3.writelen = r3, t3.writecb = i2, t3.writing = true, t3.sync = true, t3.destroyed ? t3.onwrite(new j("write")) : n3 ? e2._writev(a2, t3.onwrite) : e2._write(a2, o2, t3.onwrite), t3.sync = false;
               }
               function _(e2, t3, r3, a2, o2) {
-                --t3.pendingcb, r3 ? (n2.nextTick(o2, a2), n2.nextTick(S, e2, t3), e2._writableState.errorEmitted = true, Y2(e2, a2)) : (o2(a2), e2._writableState.errorEmitted = true, Y2(e2, a2), S(e2, t3));
+                --t3.pendingcb, r3 ? (n2.nextTick(o2, a2), n2.nextTick(S, e2, t3), e2._writableState.errorEmitted = true, Y(e2, a2)) : (o2(a2), e2._writableState.errorEmitted = true, Y(e2, a2), S(e2, t3));
               }
               function h(e2) {
                 e2.writing = false, e2.writecb = null, e2.length -= e2.writelen, e2.writelen = 0;
@@ -1695,7 +1695,7 @@ var Y = (() => {
               }
               function E(e2, t3) {
                 e2._final(function(n3) {
-                  t3.pendingcb--, n3 && Y2(e2, n3), t3.prefinished = true, e2.emit("prefinish"), S(e2, t3);
+                  t3.pendingcb--, n3 && Y(e2, n3), t3.prefinished = true, e2.emit("prefinish"), S(e2, t3);
                 });
               }
               function w(e2, t3) {
@@ -1724,7 +1724,7 @@ var Y = (() => {
               var k;
               l.WritableState = s;
               var L = { deprecate: e("util-deprecate") }, A = e("./internal/streams/stream"), x = e("buffer").Buffer, N = r2.Uint8Array || function() {
-              }, D = e("./internal/streams/destroy"), I = e("./internal/streams/state"), P = I.getHighWaterMark, M = e("../errors").codes, O = M.ERR_INVALID_ARG_TYPE, F = M.ERR_METHOD_NOT_IMPLEMENTED, B = M.ERR_MULTIPLE_CALLBACK, U = M.ERR_STREAM_CANNOT_PIPE, j = M.ERR_STREAM_DESTROYED, q = M.ERR_STREAM_NULL_VALUES, W = M.ERR_STREAM_WRITE_AFTER_END, H = M.ERR_UNKNOWN_ENCODING, Y2 = D.errorOrDestroy;
+              }, D = e("./internal/streams/destroy"), I = e("./internal/streams/state"), P = I.getHighWaterMark, M = e("../errors").codes, O = M.ERR_INVALID_ARG_TYPE, F = M.ERR_METHOD_NOT_IMPLEMENTED, B = M.ERR_MULTIPLE_CALLBACK, U = M.ERR_STREAM_CANNOT_PIPE, j = M.ERR_STREAM_DESTROYED, q = M.ERR_STREAM_NULL_VALUES, W = M.ERR_STREAM_WRITE_AFTER_END, H = M.ERR_UNKNOWN_ENCODING, Y = D.errorOrDestroy;
               e("inherits")(l, A), s.prototype.getBuffer = function() {
                 for (var e2 = this.bufferedRequest, t3 = []; e2; ) t3.push(e2), e2 = e2.next;
                 return t3;
@@ -1742,7 +1742,7 @@ var Y = (() => {
               } })) : V = function(e2) {
                 return e2 instanceof this;
               }, l.prototype.pipe = function() {
-                Y2(this, new U());
+                Y(this, new U());
               }, l.prototype.write = function(e2, t3, n3) {
                 var r3 = this._writableState, a2 = false, s2 = !r3.objectMode && i(e2);
                 return s2 && !x.isBuffer(e2) && (e2 = o(e2)), "function" == typeof t3 && (n3 = t3, t3 = null), s2 ? t3 = "buffer" : !t3 && (t3 = r3.defaultEncoding), "function" != typeof n3 && (n3 = d), r3.ending ? c(this, n3) : (s2 || u(this, r3, e2, n3)) && (r3.pendingcb++, a2 = f(this, r3, s2, e2, t3, n3)), a2;
@@ -12633,11 +12633,11 @@ var Y = (() => {
   };
 
   // bundle.js
-  var Y = { ...yjs_exports, WebrtcProvider };
+  Object.assign(yjs_exports, { WebrtcProvider });
   if (typeof window !== "undefined") {
-    window.Y = Y;
+    window.Y = yjs_exports;
   }
-  var bundle_default = Y;
+  var bundle_default = yjs_exports;
   return __toCommonJS(bundle_exports);
 })();
 /*! Bundled license information:
